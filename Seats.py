@@ -23,9 +23,10 @@ def book_seating(movie_seats,session_index):
             seat_txt = seat_txt + str(seat_number) + ' '
     seating_choice = None
     
+    #my rubbish attempts at coding
     while movie_seats not in 
         if movie_seats > 1:
-            
+
 
     print(seat_txt)
     return seating_choice
