@@ -83,13 +83,15 @@ for seat_number in range(1,16):
     else:
         seat_txt = seat_txt + str(seat_number) + ' '
 print(seat_txt)
-seating_choice = None
 
 print("Please choose your seat.")
 
+seating_choice = None
 while seating_choice not in range(1,16):
-    if seat in seats[][]:
-        print("")
-    else:
-        print(seat)
+    try:
+        seating_choice = int(input('Please, choose your seat: '))
+        
+    except:
+        print ("Wrong seat")
+        seating_choice = None
 
