@@ -1,4 +1,5 @@
 def booking():
+    
 
     print("Welcome to Cinemaplex!")
 
@@ -121,7 +122,7 @@ def booking():
 
     print()
 
-    print(f"Your full order: {movie_order},{session_order},{seating_choice}")
+    print(f"Your full order: {order},{seating_choice}")
 
     print()
     place_order = ''
