@@ -83,10 +83,10 @@ def booking():
         case '03':
             movie_seats = movie3_seats
         
-    #testing (we have booked seat number 2)
 
     print()
-
+    
+    #creating the seating chart with strings and integers. 
     print("These are the available seats.")
     seat_txt = ''
     for seat_number in range(1,16):
@@ -97,7 +97,9 @@ def booking():
     print(seat_txt)
 
     print("Please choose your seat.")
-
+    
+    #code for the user to choose and input their seat. 
+    #validates the seating choice so it is in the correct range.
     seating_choice = None
     while seating_choice not in range(1,16):
         try:
@@ -106,10 +108,10 @@ def booking():
         except:
             print ("Wrong seat")
             seating_choice = None
-
+    #appends the selected seat from the seat string so it is "booked".
     movie_seats[session_order].append(seating_choice)
 
-
+    #displayes the changed seat string to ensure that the seating choice was appended.
     print()
     seat_txt = ''
     for seat_number in range(1,16):
@@ -122,23 +124,26 @@ def booking():
 
     print()
 
+    #displays the full order to the user once everything has been selected.
+
     print(f"Your full order: {order},{seating_choice}")
 
     print()
     place_order = ''
 
-
+#Code for the user to place or cancel the order.
     while place_order.lower() not in ('yes', 'no'):
         place_order = input ('Would you like to place your order (yes/no)? ')
 
     if place_order == 'yes':
-        print ('Your order is being processed')
+        print ('Your order is being processed.')
     else:
-        print ('Your order has been cancelled')
+        print ('Your order has been cancelled.')
 
     print()
     new_order = ''
-
+    
+    #Code to book again if order was cancelled AND if it was processed but the user wants to book again.
     while new_order.lower() not in ('yes', 'no'):
         new_order = input ('Would you like to book again (yes/no)? ')
 
@@ -146,5 +151,6 @@ def booking():
         booking()
     else:
         print("Thank you for using our services!")
-        
+
+#invoking the function containing the full code. 
 booking()
