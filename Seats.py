@@ -1,3 +1,4 @@
+
 def booking():
     
 
@@ -11,6 +12,7 @@ def booking():
     sessions = {'01':'10AM','02':'3PM', '03':'6PM'}
 
     #creating the variables
+
     name = None
     movie_order = None
     seating_choice = None
@@ -20,16 +22,17 @@ def booking():
     name = input("Please enter your name:  ")
     print("Booking under name: ", name)
     
+
     print()
     #Entering the phone number of the person booking. 
-    number = int(input("Please enter your phone number:  "))
-
-    #validating the user input(phone number)
-    if type(number) == int:
-        print("Pnone number: ", number)
-    else:
+    number = ''
+    while not number.isnumeric():
+        number = input("Please enter your phone number:  ")
+    if not number.isnumeric():
         print("Invalid number entered.")
-    order = {}
+
+
+    order = []
 
     #booking the movie.
     print("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _")
@@ -47,7 +50,7 @@ def booking():
         if movie_order not in movie_choices:
             print('Wrong movie code.')
         else:
-            order[movie_order] = movie_choices[movie_order]
+            order.append(movie_choices[movie_order])
 
     #booking the session
     print("_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _")
@@ -65,7 +68,7 @@ def booking():
         if session_order not in sessions:
             print('Wrong session code.')
         else:
-            order[session_order] = sessions[session_order]
+            order.append(sessions[session_order])
 
     #creating a function for the seat booking
 
@@ -125,10 +128,13 @@ def booking():
     print()
 
     #displays the full order to the user once everything has been selected.
-
-    print(f"Your full order: {order},{seating_choice}")
+    print(f"Your full order: Movie: {order[0]}, Session: {order[1]}, Seat number: {seating_choice}")
 
     print()
+
+rebook = 'yes'
+while rebook == 'yes':
+    booking()
     place_order = ''
 
 #Code for the user to place or cancel the order.
@@ -152,5 +158,3 @@ def booking():
     else:
         print("Thank you for using our services!")
 
-#invoking the function containing the full code. 
-booking()
